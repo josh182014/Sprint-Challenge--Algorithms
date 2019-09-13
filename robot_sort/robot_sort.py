@@ -101,22 +101,25 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        SortingRobot.set_light_on(self)
+        SortingRobot.set_light_on(self)  # this tells the robot to start
         while SortingRobot.light_is_on(self):
-            SortingRobot.set_light_off(self)
-            if SortingRobot.compare_item(self) == 1:
-                SortingRobot.swap_item(self)
-                SortingRobot.move_left(self)
+            SortingRobot.set_light_off(self)  # we turn the robot off at the beginning of the loop so we don't have an infinite loops
+            if SortingRobot.can_move_right(self):  # as long as the robot has a list to its right. It needs to cycle through each item to check it
                 SortingRobot.swap_item(self)
                 SortingRobot.move_right(self)
-                SortingRobot.set_light_on(self)
+                if SortingRobot.compare_item(self) == 1:
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_left(self)
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_right(self)
+                    SortingRobot.set_light_on(self)
+                    SortingRobot.restart(self)
+                else:
+                    SortingRobot.move_left(self)
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_right(self)
             else:
-                SortingRobot.move_left(self)
-                SortingRobot.swap_item(self)
-                SortingRobot.move_right(self)
-
-            print(self._item)
-
+                SortingRobot.restart(self)
 
 
 if __name__ == "__main__":
@@ -138,5 +141,7 @@ PLAN:
 1. Loop through array
 
 2. if value is greater than next value, swap.
+
+3. return to start
 
 """
