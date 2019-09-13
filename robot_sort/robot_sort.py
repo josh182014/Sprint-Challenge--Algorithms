@@ -106,15 +106,15 @@ class SortingRobot:
             SortingRobot.set_light_off(self)  # we turn the robot off at the beginning of the loop so we don't have an infinite loops
             while SortingRobot.can_move_right(self):  # as long as the robot has a list to its right. It needs to cycle through each item to check it
                 SortingRobot.swap_item(self)  # grabs first item in array
-                SortingRobot.move_right(self)  # moves to second position in array
-                if SortingRobot.compare_item(self) == 1:
+                SortingRobot.move_right(self)  # moves to next item in array to check order
+                if SortingRobot.compare_item(self) == 1:  # if the robot's item is greater than the list's item, we need to swap the current list's item with the previous list's item
                     SortingRobot.swap_item(self)
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
                     SortingRobot.move_right(self)
-                    SortingRobot.set_light_on(self)
-                    SortingRobot.restart(self)
-                else:
+                    SortingRobot.set_light_on(self) # since we had to swap an item, we need to continue, so we turn the light back on to coninue the loop
+                    SortingRobot.restart(self)  # we move the robot back to the starting position so we can check our new lists order
+                else:  # if robot's item is not greater than the list's item, we need to put it in front of the item 
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
                     SortingRobot.move_right(self)
