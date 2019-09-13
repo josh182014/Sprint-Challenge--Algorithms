@@ -102,19 +102,19 @@ class SortingRobot:
         """
         # Fill this out
         SortingRobot.set_light_on(self)
-        SortingRobot.swap_item(self)
-        SortingRobot.move_right(self)
         while SortingRobot.light_is_on(self):
             SortingRobot.set_light_off(self)
-            if SortingRobot.compare_item(self) == -1:
-                SortingRobot.restart(self)
-            elif SortingRobot.compare_item(self) == 1:
+            if SortingRobot.compare_item(self) == 1:
+                SortingRobot.swap_item(self)
+                SortingRobot.move_left(self)
                 SortingRobot.swap_item(self)
                 SortingRobot.move_right(self)
-            elif not SortingRobot.can_move_right(self):
-                SortingRobot.set_light_off(self)
-            # else:
-            #     SortingRobot.move_right(self)
+                SortingRobot.set_light_on(self)
+            else:
+                SortingRobot.move_left(self)
+                SortingRobot.swap_item(self)
+                SortingRobot.move_right(self)
+
             print(self._item)
 
 
