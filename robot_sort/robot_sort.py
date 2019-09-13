@@ -112,7 +112,7 @@ class SortingRobot:
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
                     SortingRobot.move_right(self)
-                    SortingRobot.set_light_on(self) # since we had to swap an item, we need to continue, so we turn the light back on to coninue the loop
+                    SortingRobot.set_light_on(self)  # since we had to swap an item, we need to continue, so we turn the light back on to coninue the loop
                     SortingRobot.restart(self)  # we move the robot back to the starting position so we can check our new lists order
                 else:  # if robot's item is not greater than the list's item, we need to put it in front of the item 
                     SortingRobot.move_left(self)
