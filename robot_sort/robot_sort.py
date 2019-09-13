@@ -118,9 +118,6 @@ class SortingRobot:
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
                     SortingRobot.move_right(self)
-            else:
-                SortingRobot.restart(self)
-
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
