@@ -105,8 +105,8 @@ class SortingRobot:
         while SortingRobot.light_is_on(self):
             SortingRobot.set_light_off(self)  # we turn the robot off at the beginning of the loop so we don't have an infinite loops
             while SortingRobot.can_move_right(self):  # as long as the robot has a list to its right. It needs to cycle through each item to check it
-                SortingRobot.swap_item(self)
-                SortingRobot.move_right(self)
+                SortingRobot.swap_item(self)  # grabs first item in array
+                SortingRobot.move_right(self)  # moves to second position in array
                 if SortingRobot.compare_item(self) == 1:
                     SortingRobot.swap_item(self)
                     SortingRobot.move_left(self)
@@ -118,6 +118,7 @@ class SortingRobot:
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
                     SortingRobot.move_right(self)
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
