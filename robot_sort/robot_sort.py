@@ -104,7 +104,7 @@ class SortingRobot:
         SortingRobot.set_light_on(self)  # this tells the robot to start
         while SortingRobot.light_is_on(self):
             SortingRobot.set_light_off(self)  # we turn the robot off at the beginning of the loop so we don't have an infinite loops
-            if SortingRobot.can_move_right(self):  # as long as the robot has a list to its right. It needs to cycle through each item to check it
+            while SortingRobot.can_move_right(self):  # as long as the robot has a list to its right. It needs to cycle through each item to check it
                 SortingRobot.swap_item(self)
                 SortingRobot.move_right(self)
                 if SortingRobot.compare_item(self) == 1:
